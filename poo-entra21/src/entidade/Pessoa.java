@@ -9,6 +9,25 @@ public class Pessoa {
 	private double alturaEmMetros;
 	private char sexo;
 	
+	//Construtores
+	public Pessoa() {
+		
+	}
+	
+	public Pessoa(String nomeDaPessoa, String cpf) {
+		this.nome = nomeDaPessoa;
+		this.cpf = cpf;
+	}
+	
+	public Pessoa(String cpf, String nome, String dataNascimento, double alturaEmMetros, char sexo) {
+		super();
+		this.cpf = cpf;
+		this.nome = nome;
+		this.dataNascimento = dataNascimento;
+		this.alturaEmMetros = alturaEmMetros;
+		this.sexo = sexo;
+	}
+
 	//Métodos
 	public int calcularIdade(int anoAtual) {
 		int idade = 0;
