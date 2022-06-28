@@ -6,6 +6,7 @@ public class Pessoa {
 	private String nome;
 	private String dataNascimento;
 	private double alturaEmMetros;
+	private char sexo;
 	
 	//Métodos
 	public int calcularIdade(int anoAtual) {
@@ -41,5 +42,13 @@ public class Pessoa {
 
 	public void setAlturaEmMetros(double alturaEmMetros) {
 		this.alturaEmMetros = alturaEmMetros;
+	}
+
+	public char getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(char sexo) {
+		this.sexo = sexo;
 	}
 }
