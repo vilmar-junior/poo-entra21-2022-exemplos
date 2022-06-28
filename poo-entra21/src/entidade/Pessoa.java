@@ -3,6 +3,7 @@ package entidade;
 public class Pessoa {
 	
 	//Atributos
+	private String cpf;
 	private String nome;
 	private String dataNascimento;
 	private double alturaEmMetros;
@@ -50,5 +51,13 @@ public class Pessoa {
 
 	public void setSexo(char sexo) {
 		this.sexo = sexo;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 }
