@@ -11,5 +11,8 @@ public class Principal {
 		System.out.println("Nome: " + pedro.getNome());
 		
 		System.out.println("Idade: " + pedro.calcularIdade(2022));
+		
+		
+		System.out.println(pedro.toString());
 	}
 }
