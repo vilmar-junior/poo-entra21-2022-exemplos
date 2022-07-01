@@ -1,4 +1,4 @@
-package listaexercicios1;
+package listaexercicios.adriano;
 
 public class Exercicio3 {
 
