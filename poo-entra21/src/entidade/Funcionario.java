@@ -18,6 +18,11 @@ public class Funcionario {
 		//TODO usar uma constante para o desconto
 		return this.getSalario() * 0.15;
 	}
+	
+	@Override
+	public String toString() {
+		return "Nome: " + this.nome + "\nSalário : R$" + this.salario;
+	}
 
 	public String getNome() {
 		return nome;

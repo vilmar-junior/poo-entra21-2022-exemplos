@@ -8,7 +8,7 @@ public class Conta {
 	
 	//Construtores
 	public Conta() {
-		super();
+		//super();
 	}
 
 	public Conta(String numeroAgencia, String numeroConta, double saldo) {

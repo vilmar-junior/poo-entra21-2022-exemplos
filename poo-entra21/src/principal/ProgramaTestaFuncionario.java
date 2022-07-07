@@ -28,16 +28,23 @@ public class ProgramaTestaFuncionario {
 		empregadosDaFirma[2] = funcionarioMaria;
 		
 		double totalFolha = 0;
+		double totalFolhaSomenteGerentes = 0;
 		
 		for (int i = 0; i < empregadosDaFirma.length; i++) {
 			Funcionario funcionarioAtual = empregadosDaFirma[i];
 			if(funcionarioAtual != null) {
 				System.out.println("Funcionário atual: " + funcionarioAtual.getNome());
 				totalFolha += funcionarioAtual.calcularPagamento();
+				
+				if(funcionarioAtual instanceof Gerente) {
+					totalFolhaSomenteGerentes += funcionarioAtual.calcularPagamento();
+				}
 			}
 		}
 		
 		System.out.println("Total da folha: " + totalFolha);
+		System.out.println("Total da folha dispendida com GERENTES: " 
+								+ totalFolhaSomenteGerentes);
 		
 		
 		
