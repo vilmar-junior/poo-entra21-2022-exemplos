@@ -8,12 +8,12 @@ public class Gerente extends Funcionario {
 	//Atributos
 	private String setor;
 	
-	public Gerente(String nome, double salario) {
-		super(nome, salario);
+	public Gerente(String nome, double salario, Endereco end) {
+		super(nome, salario, end);
 	}
 	
-	public Gerente(String nome, double salario, String setor) {
-		super(nome, salario);
+	public Gerente(String nome, double salario, String setor, Endereco end) {
+		super(nome, salario, end);
 		this.setor = setor;
 	}
 	
