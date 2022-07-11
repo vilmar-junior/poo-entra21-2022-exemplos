@@ -1,18 +1,28 @@
 package principal;
 
+import java.util.ArrayList;
+
 import entidade.Pessoa;
+import entidade.PessoaFisica;
+import entidade.PessoaJuridica;
 
 public class Principal {
 
 	public static void main(String[] args) {
-		Pessoa pedro = new Pessoa("Pedro de Lara", "01233311122");
+		ArrayList<Pessoa> correntistas = new ArrayList<Pessoa>();
+		
+		PessoaFisica pedro = new PessoaFisica("Pedro de Lara", "01233311122");
 		pedro.setDataNascimento("15/08/1802");
 		
-		System.out.println("Nome: " + pedro.getNome());
+		PessoaJuridica firma1 = new PessoaJuridica("A firma",
+				"22333333000011");
 		
-		System.out.println("Idade: " + pedro.calcularIdade(2022));
+		correntistas.add(pedro);
+		correntistas.add(firma1);
 		
-		
-		System.out.println(pedro.toString());
+		for(int i=0; i < correntistas.size(); i++) {
+			System.out.println("Apelido: " 
+						+ correntistas.get(i).getApelido());
+		}
 	}
 }
