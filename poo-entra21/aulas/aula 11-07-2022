@@ -7,11 +7,17 @@
 	negativo). Use um método abstrato
 	
 3- Regra da adimplência:
-	- se PF: adimplente caso saldo > -R$500,00
-	- se PJ: adimplente caso saldo > -R$1000,00
+	- se PF: adimplente caso saldo GERAL > -R$500,00
+	- se PJ: adimplente caso saldo GERAL > -R$1000,00
+	- SALDO GERAL: somatório de saldos das contas
+	de uma pessoa
 	
 4- No principal:
 	- cadastrar uma lista de pessoas (PFs e PJs)
+		- cada pessoa tem uma lista de contas
+		- cadastrar as contas
+		- preencher numa lista de contas
+		- associar a lista de contas à pessoa
 	- percorrer a lista
 	- mostrar a situação de adimplência de cada
 	uma
