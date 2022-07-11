@@ -1,0 +1,16 @@
+29/06/2022
+
+Cálculo de salários da FIRMA
+
+1- Para todos (funcionários e gerentes)
+	Salario_Liquido = Salario_Base - 12%;
+	
+2- Para gerentes:
+  Todos os gerentes:
+	Salario = Salario_Liquido + 15% de comissão
+	(comissão calculada sobre Salario_Base)
+
+  Gerentes do setor "TI":
+	Salario = Salario + 500 (gratificação)
+	
+	

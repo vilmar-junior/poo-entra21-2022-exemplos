@@ -1,0 +1,12 @@
+27/06/2022
+
+Estudo de caso empregado nos Exercícios 
+(fictício):
+Controle de vacinas da Covid-19
+
+Uma VACINA possui as seguintes informações: 
+- país de origem, 
+- estágio da pesquisa 
+	(1-inicial, 2-testes, 3-aplicação em massa)
+- data de início da pesquisa
+- nome do pesquisador responsável

@@ -1,0 +1,17 @@
+11/07/2022
+- Alterar a modelagem do exercício do banco
+
+1- Toda pessoa pode ter várias contas
+2- Toda pessoa sabe verificar se está adimplente
+	- remover limitações de saques (pode ficar
+	negativo). Use um método abstrato
+	
+3- Regra da adimplência:
+	- se PF: adimplente caso saldo > -R$500,00
+	- se PJ: adimplente caso saldo > -R$1000,00
+	
+4- No principal:
+	- cadastrar uma lista de pessoas (PFs e PJs)
+	- percorrer a lista
+	- mostrar a situação de adimplência de cada
+	uma

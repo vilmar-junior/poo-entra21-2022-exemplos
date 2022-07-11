@@ -1,0 +1,15 @@
+08/07/2022
+	Incluir endereço nos funcionários
+
+1- Criar uma classe Endereco (no pacote entidade)
+	- cep, logradouro, numero, 
+	bairro, estado e cidade
+	- definir atributos
+	- gerar construtores
+	- gerar getters e setters
+	- gerar toString()
+	
+2- Alterar a classe Funcionario para dizer
+que todo funcionário tem um endereço	
+	- definir um atributo enderecoResidencial,
+do tipo Endereco
