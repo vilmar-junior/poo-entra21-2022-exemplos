@@ -25,4 +25,12 @@ public abstract class Pessoa {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
+	public boolean isAdimplente() {
+		return adimplente;
+	}
+
+	public void setAdimplente(boolean adimplente) {
+		this.adimplente = adimplente;
+	}
 }

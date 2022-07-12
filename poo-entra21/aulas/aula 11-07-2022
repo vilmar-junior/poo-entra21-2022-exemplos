@@ -1,23 +1,23 @@
 11/07/2022
 - Alterar a modelagem do exercício do banco
-
 1- Toda pessoa pode ter várias contas
 2- Toda pessoa sabe verificar se está adimplente
 	- remover limitações de saques (pode ficar
 	negativo). Use um método abstrato
+3- criar um método ABSTRATO na classe Pessoa
+ - public abstract boolean verificarAdimplencia();
 	
-3- Regra da adimplência:
+4- Regra da adimplência:
 	- se PF: adimplente caso saldo GERAL > -R$500,00
 	- se PJ: adimplente caso saldo GERAL > -R$1000,00
 	- SALDO GERAL: somatório de saldos das contas
 	de uma pessoa
 	
-4- No principal:
+5- No principal:
 	- cadastrar uma lista de pessoas (PFs e PJs)
 		- cada pessoa tem uma lista de contas
 		- cadastrar as contas
 		- preencher numa lista de contas
 		- associar a lista de contas à pessoa
 	- percorrer a lista
-	- mostrar a situação de adimplência de cada
-	uma
+	- mostrar a situação de adimplência de cada uma
