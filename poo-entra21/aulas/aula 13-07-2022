@@ -1,0 +1,37 @@
+13/07/2022
+	Versionar projeto no git
+	
+	1- Criar novo repositório no github
+		- copiar a url gerada
+		- Exemplo (copie a SUA): https://github.com/vilmar-junior/projetinho.git
+		
+	1- Criar novo projeto java no Eclipse
+	
+	2- No eclipse, clonar o repositório remoto
+		- habilitar a perspectiva "Git repositories"
+			Window > Show view > other... > "Git repositories"
+		- em "Git repositories", clonar o repositório remoto
+		- botão "Clone", e colar a URL copiada
+		- next, next, next, finish
+	
+	3- No eclipse, associar o projeto java criado ao repositório
+	git clonado
+		- botão direito na raiz do projeto
+		- "Team" > "Share project"
+		- na janela "Share project", desmarcar a opção "Use or create
+		repository in parent folder of project"
+		- selecionar o repositório clonado no combo "Repository"
+		
+	4- Fazer o primeiro commit
+		- habilitar a perspectiva "Git staging"
+			Window > Show view > other... > "Git staging"
+		- clicar na raiz do projeto e ver o que aparece em "Git staging"
+		- selecionar os arquivos ".classpath", ".project" 
+		e "org.eclipse.jdt.prefs" apertar botão direito e "Ignore"
+		- selecionar todos os arquivos (com extensões .java e .ignore) 
+		e adicionar ao staging (clicar no + em verde)
+		- informar uma mensagem de commit
+		- clicar em COMMIT AND PUSH
+			- next, PUSH
+		
+ 		
