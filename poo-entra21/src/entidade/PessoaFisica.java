@@ -1,10 +1,14 @@
 package entidade;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
+
 public class PessoaFisica extends Pessoa {
 
 	//Atributos
 	private String cpf;
-	private String dataNascimento;
+	private Date dataNascimento;
 	private double alturaEmMetros;
 	private char sexo;
 	
@@ -18,7 +22,7 @@ public class PessoaFisica extends Pessoa {
 		this.cpf = cpf;
 	}
 	
-	public PessoaFisica(String cpf, String nome, String dataNascimento, double alturaEmMetros, char sexo) {
+	public PessoaFisica(String cpf, String nome, Date dataNascimento, double alturaEmMetros, char sexo) {
 		super(nome);
 		this.cpf = cpf;
 		this.dataNascimento = dataNascimento;
@@ -27,14 +31,10 @@ public class PessoaFisica extends Pessoa {
 	}
 
 	//Métodos
-	public int calcularIdade(int anoAtual) {
-		int idade = 0;
+	public int calcularIdade() {
+		this.dataNascimento = new Date();
 		
-		//Assumir dd/MM/yyyy
-		String anoNascimento = this.dataNascimento.substring(6);
-		idade = anoAtual - Integer.valueOf(anoNascimento);
-		
-		return idade;
+		return 0;
 	}
 	
 	@Override
@@ -43,11 +43,11 @@ public class PessoaFisica extends Pessoa {
 	}
 	
 	//Métodos getters e setters
-	public String getDataNascimento() {
+	public Date getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(String dataNascimento) {
+	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 
@@ -74,4 +74,11 @@ public class PessoaFisica extends Pessoa {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+
+	@Override
+	public String toString() {
+		return "cpf=" + cpf + ", nome=" + getNome();
+	}
+	
+	
 }
