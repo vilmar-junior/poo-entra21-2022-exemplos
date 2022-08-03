@@ -1,7 +1,7 @@
 package principal;
 
-import entidade.Endereco;
-import entidade.Gerente;
+import model.entidade.Endereco;
+import model.entidade.Gerente;
 
 public class MinhaPrimeiraClasseJava {
 

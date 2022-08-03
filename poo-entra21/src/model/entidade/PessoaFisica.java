@@ -1,4 +1,4 @@
-package entidade;
+package model.entidade;
 
 import java.util.Calendar;
 import java.util.Date;

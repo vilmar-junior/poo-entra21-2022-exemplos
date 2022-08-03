@@ -2,9 +2,9 @@ package principal;
 
 import java.util.Scanner;
 
-import entidade.Endereco;
-import entidade.Funcionario;
-import entidade.Gerente;
+import model.entidade.Endereco;
+import model.entidade.Funcionario;
+import model.entidade.Gerente;
 
 public class ProgramaTestaFuncionario {
 
