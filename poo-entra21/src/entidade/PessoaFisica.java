@@ -2,6 +2,7 @@ package entidade;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.concurrent.TimeUnit;
 
 public class PessoaFisica extends Pessoa {
@@ -34,7 +35,17 @@ public class PessoaFisica extends Pessoa {
 	public int calcularIdade() {
 		this.dataNascimento = new Date();
 		
-		return 0;
+		Calendar dateOfBirth = new GregorianCalendar();
+		dateOfBirth.setTime(this.dataNascimento);
+
+		// Cria um objeto calendar com a data atual
+		Calendar today = Calendar.getInstance();
+
+		// Obtém a idade baseado no ano
+
+		int idade = today.get(Calendar.YEAR) - dateOfBirth.get(Calendar.YEAR);
+		
+		return idade;
 	}
 	
 	@Override

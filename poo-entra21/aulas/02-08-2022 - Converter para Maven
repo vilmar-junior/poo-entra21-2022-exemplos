@@ -1,0 +1,26 @@
+02/08/2022
+- Converter projeto para Maven
+
+1- Botão direito na raiz do projeto
+	- Configure > Convert to maven project
+	- Preencher Group Id e artifact id
+	- Finish
+
+2- No pom.xml:
+	- Criar a tag <dependencies>
+	  <dependencies>
+  
+	  </dependencies>
+	
+	- Incluir a dependência do MySQL 8.0
+
+
+	- Buscar em https://mvnrepository.com/
+	- Copiar a dependência
+	
+			<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.30</version>
+		</dependency>
