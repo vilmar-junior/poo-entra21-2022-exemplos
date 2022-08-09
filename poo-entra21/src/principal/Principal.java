@@ -1,19 +1,20 @@
 package principal;
 
-import java.util.ArrayList;
-import java.util.Date;
-
-import model.entidade.Pessoa;
-import model.entidade.PessoaFisica;
-import model.entidade.PessoaJuridica;
+import model.repository.VacinaRepository;
 
 public class Principal {
 
 	public static void main(String[] args) {
-		Date dataNascimento = new Date(2000, 8, 30);
-		PessoaFisica novaPessoa = new PessoaFisica("123", "Juca", dataNascimento, 1.75, 'M');
+		//TODO apenas para TESTES! Ainda violando o MVC
+		VacinaRepository vacinaRep = new VacinaRepository();
+		if(vacinaRep.excluir(2)) {
+			System.out.println("Vacina 2 excluída.");
+		}
 		
-		System.out.println(novaPessoa.calcularIdade());
+//		Date dataNascimento = new Date(2000, 8, 30);
+//		PessoaFisica novaPessoa = new PessoaFisica("123", "Juca", dataNascimento, 1.75, 'M');
+//		
+//		System.out.println(novaPessoa.calcularIdade());
 		
 //		ArrayList<Pessoa> correntistas = new ArrayList<Pessoa>();
 //		
