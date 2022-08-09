@@ -1,4 +1,7 @@
 Aula 08-08-2022
 	- Copiar a classe Banco do projeto de exemplos
 	- Colar a classe Banco no seu projeto
-	- Implementar os métodos em ContaRepository
+	- Implementar os métodos em 
+		ContaRepository
+		VacinaRepository
+		...
