@@ -1,5 +1,8 @@
 package principal;
 
+import java.util.Date;
+
+import model.entidade.Vacina;
 import model.repository.VacinaRepository;
 
 public class Principal {
@@ -7,8 +10,31 @@ public class Principal {
 	public static void main(String[] args) {
 		//TODO apenas para TESTES! Ainda violando o MVC
 		VacinaRepository vacinaRep = new VacinaRepository();
-		if(vacinaRep.excluir(2)) {
-			System.out.println("Vacina 2 excluída.");
+//		if(vacinaRep.excluir(2)) {
+//			System.out.println("Vacina 2 excluída.");
+//		}
+		
+//		Vacina senacVac = new Vacina();
+//		senacVac.setDataInicioPesquisa(new Date());
+//		senacVac.setEstagioPesquisa(1);
+//		senacVac.setNomePesquisadorResponsavel("Ronaldinho Gaúcho");
+//		senacVac.setPaisOrigem("Brasil");
+//		
+//		senacVac = vacinaRep.inserir(senacVac);
+//		
+//		if(senacVac.getId() > 0) {
+//			System.out.println("Nova vacina salva.");
+//		}
+		
+		Vacina vacinaQueTemNoBanco = new Vacina();
+		vacinaQueTemNoBanco.setId(4);
+		vacinaQueTemNoBanco.setNomePesquisadorResponsavel("Marcos André");
+		vacinaQueTemNoBanco.setDataInicioPesquisa(new java.util.Date());
+		vacinaQueTemNoBanco.setPaisOrigem("EUA");
+		vacinaQueTemNoBanco.setEstagioPesquisa(3);
+		
+		if(vacinaRep.atualizar(vacinaQueTemNoBanco)) {
+			System.out.println("Vacina atualizada.");
 		}
 		
 //		Date dataNascimento = new Date(2000, 8, 30);
