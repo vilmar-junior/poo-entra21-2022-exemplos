@@ -44,4 +44,10 @@ public class Vacina {
 	public void setNomePesquisadorResponsavel(String nomePesquisadorResponsavel) {
 		this.nomePesquisadorResponsavel = nomePesquisadorResponsavel;
 	}
+	@Override
+	public String toString() {
+		return "Vacina [id=" + id + ", paisOrigem=" + paisOrigem + ", estagioPesquisa=" + estagioPesquisa
+				+ ", dataInicioPesquisa=" + dataInicioPesquisa + ", nomePesquisadorResponsavel="
+				+ nomePesquisadorResponsavel + "]";
+	}
 }

@@ -26,16 +26,17 @@ public class Principal {
 //			System.out.println("Nova vacina salva.");
 //		}
 		
-		Vacina vacinaQueTemNoBanco = new Vacina();
-		vacinaQueTemNoBanco.setId(4);
-		vacinaQueTemNoBanco.setNomePesquisadorResponsavel("Marcos André");
-		vacinaQueTemNoBanco.setDataInicioPesquisa(new java.util.Date());
-		vacinaQueTemNoBanco.setPaisOrigem("EUA");
-		vacinaQueTemNoBanco.setEstagioPesquisa(3);
+		Vacina vacinaQueTemNoBanco = vacinaRep.pesquisarPorId(3);
+		System.out.println(vacinaQueTemNoBanco);
 		
-		if(vacinaRep.atualizar(vacinaQueTemNoBanco)) {
-			System.out.println("Vacina atualizada.");
-		}
+//		vacinaQueTemNoBanco.setNomePesquisadorResponsavel("Marcos André");
+//		vacinaQueTemNoBanco.setDataInicioPesquisa(new java.util.Date());
+//		vacinaQueTemNoBanco.setPaisOrigem("EUA");
+//		vacinaQueTemNoBanco.setEstagioPesquisa(3);
+//		
+//		if(vacinaRep.atualizar(vacinaQueTemNoBanco)) {
+//			System.out.println("Vacina atualizada.");
+//		}
 		
 //		Date dataNascimento = new Date(2000, 8, 30);
 //		PessoaFisica novaPessoa = new PessoaFisica("123", "Juca", dataNascimento, 1.75, 'M');

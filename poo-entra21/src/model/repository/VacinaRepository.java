@@ -96,11 +96,33 @@ public class VacinaRepository {
 	
 	//Retrieve
 	public Vacina pesquisarPorId(int id) {
-		//TODO
-		//SELECT * FROM VACINA
-		//WHERE ID = 2;
+		Vacina vacinaBuscada = null;
+		Connection conexao = Banco.getConnection();
+		String sql = " SELECT * FROM VACINA "
+				   + " WHERE ID = ? ";
 		
-		return null;
+		PreparedStatement stmt = Banco.getPreparedStatement(conexao, sql);
+		try {
+			stmt.setInt(1, id);
+			ResultSet resultado = stmt.executeQuery();
+			
+			if(resultado.next()) {
+				vacinaBuscada = new Vacina();
+				vacinaBuscada.setId(resultado.getInt("id"));
+				vacinaBuscada.setEstagioPesquisa(resultado.getInt("estagio_pesquisa"));
+				vacinaBuscada.setNomePesquisadorResponsavel(resultado.getString("nome_responsavel"));
+				vacinaBuscada.setPaisOrigem(resultado.getString("pais_origem"));
+				vacinaBuscada.setDataInicioPesquisa(resultado.getDate("data_inicio_pesquisa"));
+			}
+		} catch (SQLException e) {
+			System.out.println("Erro ao buscar vacina com id = " + id + " .\nCausa: " 
+								+ e.getCause());
+		} finally {
+			Banco.closePreparedStatement(stmt);
+			Banco.closeConnection(conexao);
+		}
+		
+		return vacinaBuscada;
 	}
 	
 	public ArrayList<Vacina> pesquisarTodas(){
