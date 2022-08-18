@@ -94,18 +94,14 @@ public class VacinaRepository {
 		return excluiu;
 	}
 	
-	//Retrieve
 	public Vacina pesquisarPorId(int id) {
 		Vacina vacinaBuscada = null;
 		Connection conexao = Banco.getConnection();
-		String sql = " SELECT * FROM VACINA "
-				   + " WHERE ID = ? ";
-		
+		String sql = " SELECT * FROM VACINA WHERE ID = ? ";
 		PreparedStatement stmt = Banco.getPreparedStatement(conexao, sql);
 		try {
 			stmt.setInt(1, id);
 			ResultSet resultado = stmt.executeQuery();
-			
 			if(resultado.next()) {
 				vacinaBuscada = new Vacina();
 				vacinaBuscada.setId(resultado.getInt("id"));
@@ -115,20 +111,42 @@ public class VacinaRepository {
 				vacinaBuscada.setDataInicioPesquisa(resultado.getDate("data_inicio_pesquisa"));
 			}
 		} catch (SQLException e) {
-			System.out.println("Erro ao buscar vacina com id = " + id + " .\nCausa: " 
-								+ e.getCause());
+			System.out.println("Erro ao buscar vacina com id = " + id + " .\nCausa: "+ e.getCause());
 		} finally {
 			Banco.closePreparedStatement(stmt);
 			Banco.closeConnection(conexao);
 		}
-		
 		return vacinaBuscada;
 	}
 	
-	public ArrayList<Vacina> pesquisarTodas(){
-		//TODO
-		//SELECT * FROM VACINA
-		return null;
-	}
 	
+	
+	public ArrayList<Vacina> pesquisarTodas(){
+		ArrayList<Vacina> vacinas = new ArrayList();
+		
+		Connection conexao = Banco.getConnection();
+		String sql = " SELECT * FROM vacina ";
+		PreparedStatement query = Banco.getPreparedStatement(conexao, sql);
+		try {
+			ResultSet resultado = query.executeQuery();
+			
+			while(resultado.next()) {
+				Vacina vac = new Vacina();
+				vac.setId(resultado.getInt("id"));
+				vac.setDataInicioPesquisa(resultado.getDate("data_inicio_pesquisa"));
+				vac.setNomePesquisadorResponsavel(resultado.getString("nome_responsavel"));
+				vac.setEstagioPesquisa(resultado.getInt("estagio_pesquisa"));
+				vac.setPaisOrigem(resultado.getString("pais_origem"));
+				
+				vacinas.add(vac);
+			}
+		} catch (SQLException e) {
+			System.out.println("Erro ao buscar vacinas.\nCausa: "+ e.getMessage());
+		} finally {
+			Banco.closePreparedStatement(query);
+			Banco.closeConnection(conexao);
+		}
+		
+		return vacinas;
+	}
 }

@@ -1,5 +1,6 @@
 package principal;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import model.entidade.Vacina;
@@ -8,8 +9,15 @@ import model.repository.VacinaRepository;
 public class Principal {
 
 	public static void main(String[] args) {
-		//TODO apenas para TESTES! Ainda violando o MVC
 		VacinaRepository vacinaRep = new VacinaRepository();
+		ArrayList<Vacina> vacinas = vacinaRep.pesquisarTodas();
+		
+		for(Vacina v: vacinas) {
+			System.out.println(v);
+		}
+		
+		
+		//TODO apenas para TESTES! Ainda violando o MVC
 //		if(vacinaRep.excluir(2)) {
 //			System.out.println("Vacina 2 excluída.");
 //		}
@@ -21,13 +29,15 @@ public class Principal {
 //		senacVac.setPaisOrigem("Brasil");
 //		
 //		senacVac = vacinaRep.inserir(senacVac);
+		
+		
 //		
 //		if(senacVac.getId() > 0) {
 //			System.out.println("Nova vacina salva.");
 //		}
 		
-		Vacina vacinaQueTemNoBanco = vacinaRep.pesquisarPorId(3);
-		System.out.println(vacinaQueTemNoBanco);
+//		Vacina vacinaQueTemNoBanco = vacinaRep.pesquisarPorId(3);
+//		System.out.println(vacinaQueTemNoBanco);
 		
 //		vacinaQueTemNoBanco.setNomePesquisadorResponsavel("Marcos André");
 //		vacinaQueTemNoBanco.setDataInicioPesquisa(new java.util.Date());
