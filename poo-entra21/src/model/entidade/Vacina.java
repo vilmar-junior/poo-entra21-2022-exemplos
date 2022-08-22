@@ -9,7 +9,7 @@ public class Vacina {
 	private String paisOrigem;
 	private int estagioPesquisa;
 	private Date dataInicioPesquisa;
-	private String nomePesquisadorResponsavel;
+	private Pesquisador responsavel;
 	
 	//Métodos
 	
@@ -38,16 +38,15 @@ public class Vacina {
 	public void setDataInicioPesquisa(Date dataInicioPesquisa) {
 		this.dataInicioPesquisa = dataInicioPesquisa;
 	}
-	public String getNomePesquisadorResponsavel() {
-		return nomePesquisadorResponsavel;
+	public Pesquisador getResponsavel() {
+		return responsavel;
 	}
-	public void setNomePesquisadorResponsavel(String nomePesquisadorResponsavel) {
-		this.nomePesquisadorResponsavel = nomePesquisadorResponsavel;
+	public void setResponsavel(Pesquisador responsavel) {
+		this.responsavel = responsavel;
 	}
 	@Override
 	public String toString() {
 		return "Vacina [id=" + id + ", paisOrigem=" + paisOrigem + ", estagioPesquisa=" + estagioPesquisa
-				+ ", dataInicioPesquisa=" + dataInicioPesquisa + ", nomePesquisadorResponsavel="
-				+ nomePesquisadorResponsavel + "]";
+				+ ", dataInicioPesquisa=" + dataInicioPesquisa + ", responsavel=" + responsavel + "]";
 	}
 }

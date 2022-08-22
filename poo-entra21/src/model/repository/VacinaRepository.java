@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.Banco;
+import model.entidade.Pesquisador;
 import model.entidade.Vacina;
 
 public class VacinaRepository {
@@ -16,14 +17,14 @@ public class VacinaRepository {
 		Connection conexao = Banco.getConnection();
 		
 		String sql = " INSERT INTO VACINA(PAIS_ORIGEM, ESTAGIO_PESQUISA, "
-					 + "                  DATA_INICIO_PESQUISA, NOME_RESPONSAVEL) "
+					 + "                  DATA_INICIO_PESQUISA, ID_RESPONSAVEL) "
 				     + " VALUES (?, ?, ?, ?) ";
 		PreparedStatement query = Banco.getPreparedStatementWithPk(conexao, sql);
 		try {
 			query.setString(1, novaVacina.getPaisOrigem());
 			query.setInt(2, novaVacina.getEstagioPesquisa());
 			query.setDate(3, new java.sql.Date(novaVacina.getDataInicioPesquisa().getTime()));
-			query.setString(4, novaVacina.getNomePesquisadorResponsavel());
+			query.setInt(4, novaVacina.getResponsavel().getId());
 			query.execute();
 			
 			ResultSet chavesGeradas = query.getGeneratedKeys();
@@ -31,7 +32,7 @@ public class VacinaRepository {
 				novaVacina.setId(chavesGeradas.getInt(1));
 			}
 		} catch (SQLException e) {
-			System.out.println("Erro ao inserir vacina.\nCausa: " + e.getCause());
+			System.out.println("Erro ao inserir vacina.\nCausa: " + e.getMessage());
 		}finally {
 			Banco.closePreparedStatement(query);
 			Banco.closeConnection(conexao);
@@ -46,7 +47,7 @@ public class VacinaRepository {
 		
 		String sql = " UPDATE VACINA SET "
 				   + " PAIS_ORIGEM = ?, ESTAGIO_PESQUISA = ?, "
-				   + " DATA_INICIO_PESQUISA = ?, NOME_RESPONSAVEL = ? "
+				   + " DATA_INICIO_PESQUISA = ?, ID_RESPONSAVEL = ? "
 				   + " WHERE ID = ? ";
 		PreparedStatement query = Banco.getPreparedStatement(conexao, sql);
 		
@@ -54,13 +55,13 @@ public class VacinaRepository {
 			query.setString(1, vacina.getPaisOrigem());
 			query.setInt(2, vacina.getEstagioPesquisa());
 			query.setDate(3, new java.sql.Date(vacina.getDataInicioPesquisa().getTime()));
-			query.setString(4, vacina.getNomePesquisadorResponsavel());
+			query.setInt(4, vacina.getResponsavel().getId());
 			query.setInt(5, vacina.getId());
 			
 			int linhasAfetadas = query.executeUpdate();
 			atualizou = linhasAfetadas > 0;
 		} catch (SQLException e) {
-			System.out.println("Erro ao atualizar vacina.\nCausa: " + e.getCause());
+			System.out.println("Erro ao atualizar vacina.\nCausa: " + e.getMessage());
 		}finally {
 			Banco.closePreparedStatement(query);
 			Banco.closeConnection(conexao);
@@ -85,7 +86,7 @@ public class VacinaRepository {
 			int registrosExcluidos = stmt.executeUpdate();
 			excluiu = (registrosExcluidos > 0);
 		} catch (SQLException e) {
-			System.out.println("Erro ao excluir vacina.\nCausa: " + e.getCause());
+			System.out.println("Erro ao excluir vacina.\nCausa: " + e.getMessage());
 		} finally {
 			Banco.closePreparedStatement(stmt);
 			Banco.closeConnection(conexao);
@@ -106,12 +107,17 @@ public class VacinaRepository {
 				vacinaBuscada = new Vacina();
 				vacinaBuscada.setId(resultado.getInt("id"));
 				vacinaBuscada.setEstagioPesquisa(resultado.getInt("estagio_pesquisa"));
-				vacinaBuscada.setNomePesquisadorResponsavel(resultado.getString("nome_responsavel"));
 				vacinaBuscada.setPaisOrigem(resultado.getString("pais_origem"));
 				vacinaBuscada.setDataInicioPesquisa(resultado.getDate("data_inicio_pesquisa"));
+				
+				int idResponsavel = resultado.getInt("id_responsavel");
+				PesquisadorRepository pesquisadorRepository = new PesquisadorRepository();
+				Pesquisador responsavelBuscado = pesquisadorRepository.consultarPorId(idResponsavel);
+				
+				vacinaBuscada.setResponsavel(responsavelBuscado);
 			}
 		} catch (SQLException e) {
-			System.out.println("Erro ao buscar vacina com id = " + id + " .\nCausa: "+ e.getCause());
+			System.out.println("Erro ao buscar vacina com id = " + id + " .\nCausa: "+ e.getMessage());
 		} finally {
 			Banco.closePreparedStatement(stmt);
 			Banco.closeConnection(conexao);
@@ -131,14 +137,19 @@ public class VacinaRepository {
 			ResultSet resultado = query.executeQuery();
 			
 			while(resultado.next()) {
-				Vacina vac = new Vacina();
-				vac.setId(resultado.getInt("id"));
-				vac.setDataInicioPesquisa(resultado.getDate("data_inicio_pesquisa"));
-				vac.setNomePesquisadorResponsavel(resultado.getString("nome_responsavel"));
-				vac.setEstagioPesquisa(resultado.getInt("estagio_pesquisa"));
-				vac.setPaisOrigem(resultado.getString("pais_origem"));
+				Vacina vacinaBuscada = new Vacina();
+				vacinaBuscada.setId(resultado.getInt("id"));
+				vacinaBuscada.setEstagioPesquisa(resultado.getInt("estagio_pesquisa"));
+				vacinaBuscada.setPaisOrigem(resultado.getString("pais_origem"));
+				vacinaBuscada.setDataInicioPesquisa(resultado.getDate("data_inicio_pesquisa"));
 				
-				vacinas.add(vac);
+				int idResponsavel = resultado.getInt("id_responsavel");
+				PesquisadorRepository pesquisadorRepository = new PesquisadorRepository();
+				Pesquisador responsavelBuscado = pesquisadorRepository.consultarPorId(idResponsavel);
+				
+				vacinaBuscada.setResponsavel(responsavelBuscado);
+				
+				vacinas.add(vacinaBuscada);
 			}
 		} catch (SQLException e) {
 			System.out.println("Erro ao buscar vacinas.\nCausa: "+ e.getMessage());

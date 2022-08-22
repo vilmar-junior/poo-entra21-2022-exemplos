@@ -3,33 +3,36 @@ package principal;
 import java.util.ArrayList;
 import java.util.Date;
 
+import model.entidade.Pesquisador;
 import model.entidade.Vacina;
+import model.repository.PesquisadorRepository;
 import model.repository.VacinaRepository;
 
 public class Principal {
 
 	public static void main(String[] args) {
 		VacinaRepository vacinaRep = new VacinaRepository();
-		ArrayList<Vacina> vacinas = vacinaRep.pesquisarTodas();
-		
-		for(Vacina v: vacinas) {
-			System.out.println(v);
-		}
-		
+//		ArrayList<Vacina> vacinas = vacinaRep.pesquisarTodas();
+//		
+//		for(Vacina v: vacinas) {
+//			System.out.println(v);
+//		}
 		
 		//TODO apenas para TESTES! Ainda violando o MVC
 //		if(vacinaRep.excluir(2)) {
 //			System.out.println("Vacina 2 excluída.");
 //		}
 		
-//		Vacina senacVac = new Vacina();
-//		senacVac.setDataInicioPesquisa(new Date());
-//		senacVac.setEstagioPesquisa(1);
-//		senacVac.setNomePesquisadorResponsavel("Ronaldinho Gaúcho");
-//		senacVac.setPaisOrigem("Brasil");
-//		
-//		senacVac = vacinaRep.inserir(senacVac);
+		PesquisadorRepository pesqRep = new PesquisadorRepository();
+		Pesquisador r10 = pesqRep.consultarPorId(3);
 		
+		Vacina senacVac = new Vacina();
+		senacVac.setDataInicioPesquisa(new Date());
+		senacVac.setEstagioPesquisa(3);
+		senacVac.setResponsavel(r10);
+		senacVac.setPaisOrigem("Catar");
+		
+		senacVac = vacinaRep.inserir(senacVac);
 		
 //		
 //		if(senacVac.getId() > 0) {
