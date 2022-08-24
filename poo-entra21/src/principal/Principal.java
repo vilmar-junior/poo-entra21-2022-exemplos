@@ -24,7 +24,7 @@ public class Principal {
 //		}
 		
 		PesquisadorRepository pesqRep = new PesquisadorRepository();
-		Pesquisador r10 = pesqRep.consultarPorId(3);
+		Pesquisador r10 = pesqRep.pesquisarPorId(3);
 		
 		Vacina senacVac = new Vacina();
 		senacVac.setDataInicioPesquisa(new Date());

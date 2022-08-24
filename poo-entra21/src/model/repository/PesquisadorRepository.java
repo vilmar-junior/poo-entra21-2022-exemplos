@@ -14,7 +14,7 @@ public class PesquisadorRepository {
 	//TODO criar métodos para 
 	//Inserir, alterar e excluir
 	
-	public Pesquisador consultarPorId(int id) {
+	public Pesquisador pesquisarPorId(int id) {
 		Pesquisador pesquisadorBuscado = null;
 		Connection conexao = Banco.getConnection();
 		String sql = " SELECT * FROM PESQUISADOR WHERE ID = ? ";

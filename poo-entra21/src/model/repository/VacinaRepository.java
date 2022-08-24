@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import model.Banco;
 import model.entidade.Pesquisador;
@@ -112,7 +113,7 @@ public class VacinaRepository {
 				
 				int idResponsavel = resultado.getInt("id_responsavel");
 				PesquisadorRepository pesquisadorRepository = new PesquisadorRepository();
-				Pesquisador responsavelBuscado = pesquisadorRepository.consultarPorId(idResponsavel);
+				Pesquisador responsavelBuscado = pesquisadorRepository.pesquisarPorId(idResponsavel);
 				
 				vacinaBuscada.setResponsavel(responsavelBuscado);
 			}
@@ -124,7 +125,6 @@ public class VacinaRepository {
 		}
 		return vacinaBuscada;
 	}
-	
 	
 	
 	public ArrayList<Vacina> pesquisarTodas(){
@@ -145,7 +145,7 @@ public class VacinaRepository {
 				
 				int idResponsavel = resultado.getInt("id_responsavel");
 				PesquisadorRepository pesquisadorRepository = new PesquisadorRepository();
-				Pesquisador responsavelBuscado = pesquisadorRepository.consultarPorId(idResponsavel);
+				Pesquisador responsavelBuscado = pesquisadorRepository.pesquisarPorId(idResponsavel);
 				
 				vacinaBuscada.setResponsavel(responsavelBuscado);
 				
@@ -160,4 +160,37 @@ public class VacinaRepository {
 		
 		return vacinas;
 	}
+	
+	
+	public List<Vacina> pesquisarPorIdResponsavel(int idResponsavel){
+		List<Vacina> vacinasDoPesquisador = new ArrayList<Vacina>();
+		Vacina vacinaBuscada = null;
+		Connection conexao = Banco.getConnection();
+		String sql = " SELECT * FROM VACINA WHERE ID_RESPONSAVEL = ? ";
+		PreparedStatement stmt = Banco.getPreparedStatement(conexao, sql);
+		try {
+			stmt.setInt(1, idResponsavel);
+			ResultSet resultado = stmt.executeQuery();
+			if(resultado.next()) {
+				vacinaBuscada = new Vacina();
+				vacinaBuscada.setId(resultado.getInt("id"));
+				vacinaBuscada.setEstagioPesquisa(resultado.getInt("estagio_pesquisa"));
+				vacinaBuscada.setPaisOrigem(resultado.getString("pais_origem"));
+				vacinaBuscada.setDataInicioPesquisa(resultado.getDate("data_inicio_pesquisa"));
+				
+				PesquisadorRepository pesquisadorRepository = new PesquisadorRepository();
+				Pesquisador responsavelBuscado = pesquisadorRepository.pesquisarPorId(idResponsavel);
+				
+				vacinaBuscada.setResponsavel(responsavelBuscado);
+				vacinasDoPesquisador.add(vacinaBuscada);
+			}
+		} catch (SQLException e) {
+			System.out.println("Erro ao buscar vacinas do pesquisador = " + idResponsavel + " .\nCausa: "+ e.getMessage());
+		} finally {
+			Banco.closePreparedStatement(stmt);
+			Banco.closeConnection(conexao);
+		}
+		return vacinasDoPesquisador;
+	}
+	
 }
