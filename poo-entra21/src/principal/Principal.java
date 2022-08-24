@@ -3,6 +3,8 @@ package principal;
 import java.util.ArrayList;
 import java.util.Date;
 
+import controller.VacinaController;
+import exception.VacinaSemResponsavelException;
 import model.entidade.Pesquisador;
 import model.entidade.Vacina;
 import model.repository.PesquisadorRepository;
@@ -11,7 +13,6 @@ import model.repository.VacinaRepository;
 public class Principal {
 
 	public static void main(String[] args) {
-		VacinaRepository vacinaRep = new VacinaRepository();
 //		ArrayList<Vacina> vacinas = vacinaRep.pesquisarTodas();
 //		
 //		for(Vacina v: vacinas) {
@@ -29,15 +30,19 @@ public class Principal {
 		Vacina senacVac = new Vacina();
 		senacVac.setDataInicioPesquisa(new Date());
 		senacVac.setEstagioPesquisa(3);
-		senacVac.setResponsavel(r10);
+		//senacVac.setResponsavel(r10);
 		senacVac.setPaisOrigem("Catar");
 		
-		senacVac = vacinaRep.inserir(senacVac);
-		
-//		
-//		if(senacVac.getId() > 0) {
-//			System.out.println("Nova vacina salva.");
-//		}
+		VacinaController vacinaController = new VacinaController();
+		try {
+			senacVac = vacinaController.salvar(senacVac);
+		} catch (VacinaSemResponsavelException e) {
+			System.out.println(e.getMessage());
+		}
+
+		if(senacVac.getId() > 0) {
+			System.out.println("Nova vacina salva.");
+		}
 		
 //		Vacina vacinaQueTemNoBanco = vacinaRep.pesquisarPorId(3);
 //		System.out.println(vacinaQueTemNoBanco);

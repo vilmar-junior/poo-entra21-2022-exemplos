@@ -41,3 +41,10 @@ ADD CONSTRAINT `id_responsavel`
 
 ALTER TABLE `vacinas`.`vacina` DROP COLUMN `nome_responsavel`;
 
+-- Mostrar nome do país e nome do pesquisador de cada vacina
+select v.pais_origem, p.nome 
+from vacina v, pesquisador p
+where v.id_responsavel = p.id;
+
+
+
