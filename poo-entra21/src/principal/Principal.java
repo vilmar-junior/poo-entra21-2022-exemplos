@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import controller.VacinaController;
+import exception.CampoInvalidoException;
 import exception.VacinaSemResponsavelException;
 import model.entidade.Pesquisador;
 import model.entidade.Vacina;
@@ -30,15 +31,15 @@ public class Principal {
 		Vacina senacVac = new Vacina();
 		senacVac.setDataInicioPesquisa(new Date());
 		senacVac.setEstagioPesquisa(3);
-		//senacVac.setResponsavel(r10);
-		senacVac.setPaisOrigem("Catar");
+		senacVac.setResponsavel(r10);
+		senacVac.setPaisOrigem("Azerbaijão");
 		
 		VacinaController vacinaController = new VacinaController();
 		try {
 			senacVac = vacinaController.salvar(senacVac);
-		} catch (VacinaSemResponsavelException e) {
+		} catch (VacinaSemResponsavelException | CampoInvalidoException e) {
 			System.out.println(e.getMessage());
-		}
+		} 
 
 		if(senacVac.getId() > 0) {
 			System.out.println("Nova vacina salva.");
