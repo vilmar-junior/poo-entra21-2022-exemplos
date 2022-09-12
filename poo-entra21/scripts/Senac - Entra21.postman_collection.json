@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "bffaf5ce-1335-42b2-af59-d22ff9750a25",
+		"_postman_id": "b216c076-4638-47f9-954b-6aea40148f33",
 		"name": "Senac - Entra21",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5303656"
 	},
 	"item": [
 		{
@@ -25,38 +26,42 @@
 			"response": []
 		},
 		{
-			"name": "GET vacina por id (listar por id)",
+			"name": "GET vacinas por id responsável",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/vacina",
+					"raw": "http://localhost:8080/vacina/responsavel/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"vacina"
+						"vacina",
+						"responsavel",
+						"1"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "GET vacina por id (listar por id) Copy",
+			"name": "GET vacina por id (listar por id)",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/vacina",
+					"raw": "http://localhost:8080/vacina/detalhe/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"vacina"
+						"vacina",
+						"detalhe",
+						"1"
 					]
 				}
 			},
