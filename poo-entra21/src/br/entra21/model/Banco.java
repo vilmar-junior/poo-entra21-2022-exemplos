@@ -1,4 +1,4 @@
-package model;
+package br.entra21.model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

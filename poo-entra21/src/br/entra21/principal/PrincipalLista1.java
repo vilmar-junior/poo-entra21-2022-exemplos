@@ -1,6 +1,6 @@
-package principal;
+package br.entra21.principal;
 
-import model.entidade.Conta;
+import br.entra21.model.entidade.Conta;
 
 public class PrincipalLista1 {
 

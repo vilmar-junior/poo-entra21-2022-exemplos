@@ -1,4 +1,4 @@
-package model.entidade;
+package br.entra21.model.entidade;
 
 import java.util.Calendar;
 import java.util.Date;

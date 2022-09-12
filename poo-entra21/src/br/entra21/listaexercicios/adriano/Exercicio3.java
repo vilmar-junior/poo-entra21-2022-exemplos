@@ -1,4 +1,4 @@
-package listaexercicios.adriano;
+package br.entra21.listaexercicios.adriano;
 
 public class Exercicio3 {
 

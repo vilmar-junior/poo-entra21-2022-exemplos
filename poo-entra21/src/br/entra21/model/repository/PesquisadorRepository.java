@@ -1,20 +1,19 @@
-package model.repository;
+package br.entra21.model.repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.Banco;
-import model.entidade.Pesquisador;
-import model.entidade.Vacina;
+import br.entra21.model.Banco;
+import br.entra21.model.entidade.Pesquisador;
 
 public class PesquisadorRepository {
 
 	//TODO criar métodos para 
 	//Inserir, alterar e excluir
 	
-	public Pesquisador consultarPorId(int id) {
+	public Pesquisador pesquisarPorId(int id) {
 		Pesquisador pesquisadorBuscado = null;
 		Connection conexao = Banco.getConnection();
 		String sql = " SELECT * FROM PESQUISADOR WHERE ID = ? ";

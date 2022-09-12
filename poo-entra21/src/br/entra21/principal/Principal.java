@@ -1,17 +1,19 @@
-package principal;
+package br.entra21.principal;
 
 import java.util.ArrayList;
 import java.util.Date;
 
-import model.entidade.Pesquisador;
-import model.entidade.Vacina;
-import model.repository.PesquisadorRepository;
-import model.repository.VacinaRepository;
+import br.entra21.model.entidade.Pesquisador;
+import br.entra21.model.entidade.Vacina;
+import br.entra21.model.repository.PesquisadorRepository;
+import br.entra21.model.repository.VacinaRepository;
+import br.entra21.controller.VacinaController;
+import br.entra21.exception.CampoInvalidoException;
+import br.entra21.exception.VacinaSemResponsavelException;
 
 public class Principal {
 
 	public static void main(String[] args) {
-		VacinaRepository vacinaRep = new VacinaRepository();
 //		ArrayList<Vacina> vacinas = vacinaRep.pesquisarTodas();
 //		
 //		for(Vacina v: vacinas) {
@@ -24,20 +26,24 @@ public class Principal {
 //		}
 		
 		PesquisadorRepository pesqRep = new PesquisadorRepository();
-		Pesquisador r10 = pesqRep.consultarPorId(3);
+		Pesquisador r10 = pesqRep.pesquisarPorId(3);
 		
 		Vacina senacVac = new Vacina();
 		senacVac.setDataInicioPesquisa(new Date());
 		senacVac.setEstagioPesquisa(3);
 		senacVac.setResponsavel(r10);
-		senacVac.setPaisOrigem("Catar");
+		senacVac.setPaisOrigem("Azerbaijão");
 		
-		senacVac = vacinaRep.inserir(senacVac);
-		
-//		
-//		if(senacVac.getId() > 0) {
-//			System.out.println("Nova vacina salva.");
-//		}
+		VacinaController vacinaController = new VacinaController();
+		try {
+			senacVac = vacinaController.salvar(senacVac);
+		} catch (VacinaSemResponsavelException | CampoInvalidoException e) {
+			System.out.println(e.getMessage());
+		} 
+
+		if(senacVac.getId() > 0) {
+			System.out.println("Nova vacina salva.");
+		}
 		
 //		Vacina vacinaQueTemNoBanco = vacinaRep.pesquisarPorId(3);
 //		System.out.println(vacinaQueTemNoBanco);

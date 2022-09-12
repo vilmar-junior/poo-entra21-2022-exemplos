@@ -4,6 +4,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+<<<<<<< HEAD
 ### STS ###
 .apt_generated
 .classpath
@@ -32,7 +33,34 @@ build/
 ### VS Code ###
 .vscode/
 
+=======
+>>>>>>> branch 'master' of https://github.com/vilmar-junior/poo-entra21-2022-exemplos.git
 /bin/
-/.classpath
-/.project
-/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/

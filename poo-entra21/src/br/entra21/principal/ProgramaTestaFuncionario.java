@@ -1,10 +1,10 @@
-package principal;
+package br.entra21.principal;
 
 import java.util.Scanner;
 
-import model.entidade.Endereco;
-import model.entidade.Funcionario;
-import model.entidade.Gerente;
+import br.entra21.model.entidade.Endereco;
+import br.entra21.model.entidade.Funcionario;
+import br.entra21.model.entidade.Gerente;
 
 public class ProgramaTestaFuncionario {
 
