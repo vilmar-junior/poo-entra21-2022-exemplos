@@ -1,0 +1,151 @@
+{
+	"info": {
+		"_postman_id": "bffaf5ce-1335-42b2-af59-d22ff9750a25",
+		"name": "Senac - Entra21",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET vacinas (listar todas)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vacina",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vacina"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET vacina por id (listar por id)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vacina",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vacina"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET vacina por id (listar por id) Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vacina",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vacina"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST vacina (inserir)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"paisOrigem\": \"Brasil\",\r\n    \"estagioPesquisa\": 2,\r\n    \"dataInicioPesquisa\": \"2022-10-10\",\r\n    \"responsavel\": {\r\n        \"id\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vacina",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vacina"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT vacina (atualizar)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"paisOrigem\": \"Portugal\",\r\n    \"estagioPesquisa\": 3,\r\n    \"dataInicioPesquisa\": \"2022-10-10\",\r\n    \"responsavel\": {\r\n        \"id\": 1,\r\n        \"nome\": \"Edson Arantes do Nascimento\",\r\n        \"cpf\": \"00011122210\",\r\n        \"matricula\": 10,\r\n        \"dataNascimento\": \"1940-03-21\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vacina",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vacina"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE vacina (excluir)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"paisOrigem\": \"Portugal\",\r\n    \"estagioPesquisa\": 3,\r\n    \"dataInicioPesquisa\": \"2022-10-10\",\r\n    \"responsavel\": {\r\n        \"id\": 1,\r\n        \"nome\": \"Edson Arantes do Nascimento\",\r\n        \"cpf\": \"00011122210\",\r\n        \"matricula\": 10,\r\n        \"dataNascimento\": \"1940-03-21\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vacina/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vacina",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

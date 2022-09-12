@@ -34,16 +34,16 @@ public class Principal {
 		senacVac.setResponsavel(r10);
 		senacVac.setPaisOrigem("Azerbaijão");
 		
-		VacinaController vacinaController = new VacinaController();
-		try {
-			senacVac = vacinaController.salvar(senacVac);
-		} catch (VacinaSemResponsavelException | CampoInvalidoException e) {
-			System.out.println(e.getMessage());
-		} 
-
-		if(senacVac.getId() > 0) {
-			System.out.println("Nova vacina salva.");
-		}
+//		VacinaController vacinaController = new VacinaController();
+//		try {
+//			senacVac = vacinaController.salvar(senacVac);
+//		} catch (VacinaSemResponsavelException | CampoInvalidoException e) {
+//			System.out.println(e.getMessage());
+//		} 
+//
+//		if(senacVac.getId() > 0) {
+//			System.out.println("Nova vacina salva.");
+//		}
 		
 //		Vacina vacinaQueTemNoBanco = vacinaRep.pesquisarPorId(3);
 //		System.out.println(vacinaQueTemNoBanco);

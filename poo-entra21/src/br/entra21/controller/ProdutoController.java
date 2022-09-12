@@ -1,4 +1,4 @@
-package controller;
+package br.entra21.controller;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import model.entidade.Produto;
 
 @RestController
-@RequestMapping("/api/produtos") // shorthand for @Controller and @ResponseBody rolled together
+@RequestMapping(path = "/api/produtos") // shorthand for @Controller and @ResponseBody rolled together
 public class ProdutoController {
 
 	@GetMapping
